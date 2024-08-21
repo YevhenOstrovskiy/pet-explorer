@@ -18,6 +18,10 @@ interface PetImagesProps {
 export const PetImages: React.FC<PetImagesProps> = ({ images }) => {
   const [thumbsSwiper, setThumbsSwiper] = React.useState<SwiperCore | null>(null);
 
+  if (!images.length) {
+    return <div> Images not founf </div>
+  }
+
   return (
     <div className="w-full max-w-sm mx-auto">
       <Swiper

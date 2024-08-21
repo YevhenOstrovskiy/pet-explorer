@@ -1,23 +1,10 @@
 import { BaseUrls } from '@/constants';
-import { NextRequest, NextResponse } from 'next/server';
+import { apiClient } from '@/lib';
+import { NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
   const { id } = params;
-  
-  try {
-    const response = await fetch(`${BaseUrls.BASE_DOG_API_URL}breeds/${id}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': process.env.DOG_API_KEY as string,
-      },
-      cache: 'force-cache',
-    }).then((res) => res.json());
-
-    if (!response) {
-      return NextResponse.json({ message: 'Dog not found!' }, { status: 404 });
-    }
-    return NextResponse.json(response);
-} catch (error) {
-  NextResponse.json({ message: 'Internal Server Error!' });
-}
+  const dogUrl = `${BaseUrls.BASE_DOG_API_URL}${id}`;
+  const result = await apiClient(dogUrl, process.env.DOG_API_KEY as string);
+  return result;
 }
