@@ -8,11 +8,20 @@ interface CatDetailProps {
 }
 
 export const CatDetail: React.FC<CatDetailProps> = ({ cat, images }) => {
+  const baseImg : Image[] = [
+    {
+      id: cat.id,
+      width: 320,
+      height: 320,
+      url: `https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg`
+    }
+  ];
+
   return (
-    <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="max-w-4xl min-h-screen mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
       <div className="flex flex-col md:flex-row">
         <div className="mt-1 p-1 w-full md:order-none order-1">
-          <PetImages images={images} />
+          {!!images.length ? (<PetImages images={images} />) : <PetImages images={baseImg} />}
         </div>
         <div className="p-6 w-full md:order-none order-1">
           <h2 className="text-2xl font-bold mb-2">{cat.name}</h2>

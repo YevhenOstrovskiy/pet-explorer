@@ -9,11 +9,20 @@ interface DogDetailProps {
 }
 
 export const DogDetail: React.FC<DogDetailProps> = ({ dog, images }) => {
+  const baseImg : Image[] = [
+    {
+      id: `${dog.id}`,
+      width: 320,
+      height: 320,
+      url: `https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`
+    }
+  ];
+
   return (
-    <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="max-w-4xl min-h-screen mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
       <div className="flex flex-col md:flex-row">
         <div className="mt-1 p-1 w-full md:order-none order-1">
-          <PetImages images={images} />
+          {!!images.length ? (<PetImages images={images} />) : <PetImages images={baseImg} />}
         </div>
         <div className="p-6 w-full md:order-none order-2">
           <h2 className="text-2xl font-bold mb-2">{dog.name}</h2>
