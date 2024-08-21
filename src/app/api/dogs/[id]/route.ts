@@ -1,14 +1,16 @@
+import { BaseUrls } from '@/constants';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
   const { id } = params;
   
   try {
-    const response = await fetch(`https://api.thedogapi.com/v1/breeds/${id}`, {
+    const response = await fetch(`${BaseUrls.BASE_DOG_API_URL}breeds/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         'x-api-key': process.env.DOG_API_KEY as string,
       },
+      cache: 'force-cache',
     }).then((res) => res.json());
 
     if (!response) {
