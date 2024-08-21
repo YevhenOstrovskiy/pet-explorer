@@ -8,7 +8,7 @@ export const Header: React.FC = () => {
   const pathname = usePathname()
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-gray-800 text-white p-4 shadow-md opacity-80">
+    <header className="fixed top-0 left-0 right-0 bg-gray-800 text-white p-4 shadow-md opacity-80 z-50">
       <nav className="container mx-auto flex justify-between items-center">
         <div className="text-xl font-bold">
           <Link href="/" legacyBehavior>
