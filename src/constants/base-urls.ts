@@ -1,6 +1,6 @@
 export const BASE_URL =
   process.env.NODE_ENV === "production"
-    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    ? `${process.env.NEXT_PUBLIC_VERCEL_URL}`
     : "http://localhost:3000";
 export const BASE_CAT_URL = `https://api.thecatapi.com/v1/`;
 export const BASE_CAT_API_URL = `${BASE_CAT_URL}breeds/`;
