@@ -6,3 +6,5 @@ export { PetCard } from '@/components/pet-card';
 export { PetImages } from '@/components/pet-images';
 export { CatDetail } from '@/components/cat-detail';
 export { DogDetail } from '@/components/dog-detail';
+export { Search } from '@/components/search';
+export { DropdownList } from '@/components/dropdown-list';

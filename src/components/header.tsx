@@ -1,18 +1,20 @@
-'use client'
-import { usePathname } from 'next/navigation'
+'use client';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 import Link from 'next/link';
 import { Route } from '@/constants';
+import { Search } from '@/components';
+
 
 export const Header: React.FC = () => {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <header className="relative top-0 left-0 right-0 bg-gray-800 text-white p-4 shadow-md opacity-80 z-50">
       <nav className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="text-xl font-bold">
           <Link href="/" legacyBehavior>
-            <a className={`hover:text-gray-300`}>PetBreedExplorer</a>
+            <a className="hover:text-gray-300">PetBreedExplorer</a>
           </Link>
         </div>
         <ul className="flex space-x-4">
@@ -37,6 +39,9 @@ export const Header: React.FC = () => {
             </Link>
           </li>
         </ul>
+        <div className="mt-4 md:mt-0">
+          <Search />
+        </div>
       </nav>
     </header>
   );

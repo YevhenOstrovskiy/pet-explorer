@@ -3,7 +3,7 @@ import { Dog } from '@/types/Dog';
 import { BaseUrls } from '@/constants';
 
 export const fetchPet = async (id: string, route: string): Promise<Cat | Dog> => {
-  const response = await fetch(`${BaseUrls.BASE_URL}/api${route}/${id}`);
+  const response = await fetch(`${BaseUrls.BASE_URL}/api${route}/${id}`, {cache: 'force-cache'});
   if (!response.ok) {
     throw new Error('Failed to fetch pet');
   }
