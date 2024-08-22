@@ -17,3 +17,7 @@ module.exports = {
     ],
   },
 };
+
+const dotenvExpand = require("dotenv-expand");
+
+dotenvExpand.expand({ parsed: { ...process.env } });
