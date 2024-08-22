@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Pet } from '@/types';
 
 interface DropdownListProps {
   items: string[];
