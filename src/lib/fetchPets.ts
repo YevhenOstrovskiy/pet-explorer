@@ -3,7 +3,7 @@ import { Pet } from '@/types/Pet';
 
 export const fetchPets = async (route: string): Promise<Pet[] | null> => {
   try {
-    const response = await fetch(`http://localhost:3000/api${route}`);
+    const response = await fetch(`${BaseUrls.BASE_URL}/api${route}`);
     if (!response.ok) {
       throw new Error(`Failed to fetch pets from ${route}`);
     }
